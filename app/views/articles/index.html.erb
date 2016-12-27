@@ -1,0 +1,38 @@
+<div class="container">
+  <h1>Listing Articles</h1>
+  <%= link_to 'New article', new_article_path, :class => "btn btn-xs btn-info pull-right" %>
+
+
+  <table  class="table">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Text</th>
+        <th>View</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @articles.each do |article| %>
+          <tr>
+            <td><%= article.title %></td>
+            <td><%= article.text %></td>
+            <td><%= link_to 'Show', article_path(article), :class => "btn btn-xs btn-info" %></td>
+            <td><%= link_to 'Edit', edit_article_path(article), :class => "btn btn-xs btn-info"  %></td>
+            <td><%= link_to 'Destroy', article_path(article),
+                            method: :delete,
+                            data: { confirm: 'Are you sure to destroy ?' } ,
+                            :class => "btn btn-xs btn-info"  %></td>
+          </tr>
+      <% end %>
+    </tbody>
+
+  </table>
+</div>
+
+<%= link_to "Open modal", "#my-modal", :class => "btn", "data-toggle" => "modal" %>
+<div class="modal hide fade" id="my-modal" title="My modal">
+  okokokokok
+</div>
+
